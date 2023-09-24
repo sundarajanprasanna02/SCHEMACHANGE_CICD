@@ -29,6 +29,7 @@ jobs:
 
 
       - name: Run schemachange credentials
+        if: github.ref == 'refs/heads/build'
         env:
           SF_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
           SF_USERNAME: ${{ secrets.SF_USERNAME }}
@@ -40,7 +41,7 @@ jobs:
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
 
 
-        if: github.ref == 'refs/heads/build'
+        # if: github.ref == 'refs/heads/build'
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
