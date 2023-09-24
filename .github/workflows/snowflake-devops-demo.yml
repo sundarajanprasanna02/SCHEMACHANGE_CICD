@@ -51,8 +51,8 @@ jobs:
           echo "Step 2: Running schemachange"
           schemachange -f $GITHUB_WORKSPACE/dbscripts -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_BUILD_DATABASE -c $SF_BUILD_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
         
-        
-        if: github.ref == 'refs/heads/main'
+
+        else:
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
